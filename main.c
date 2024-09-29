@@ -28,12 +28,12 @@ int main(void)
 
 void generate_archimedian_spiral(int rounds, vertex_t* vertices, int size_vertices, line_t* lines, int size_lines)
 {
-    float angle_step = rounds * 2 * M_PI / size_vertices;
+    double angle_step = rounds * 2 * M_PI / size_vertices;
     for (int t = 0; t < size_vertices; t++)
     {
-        float angle = angle_step * (float)t;
-        const float a = 1.5f;
-        const float b = 1.5f;
+        double angle = angle_step * (float)t;
+        const double a = 1.5;
+        const double b = 1.5;
         vertices[t].x = (a + b*angle)*cos(angle);
         vertices[t].y = (a + b*angle)*sin(angle);
     }

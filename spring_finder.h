@@ -2,8 +2,8 @@
 #define SPRING_FINDER_H
 typedef struct vertex
 {
-    float x;
-    float y;
+    double x;
+    double y;
 } vertex_t;
 
 typedef struct line
