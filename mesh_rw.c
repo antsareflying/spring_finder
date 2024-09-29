@@ -43,3 +43,23 @@ int write_line(FILE* mesh_file, int line_no, line_t line)
     fprintf(mesh_file, write_buffer);
     return 0;
 }
+
+int write_mesh_data(char* mesh_file_name, vertex_t* vertices, int size_vertices, line_t* lines, int size_lines)
+{
+    const char* msh_file_header = "mesh file ver = 1\n";
+    FILE* msh_file_ptr = open_file(mesh_file_name);
+
+    fprintf(msh_file_ptr, msh_file_header);
+    fprintf(msh_file_ptr, "Vertex\n");
+    for (int i = 0; i < size_vertices; i++)
+    {
+        write_vertex(msh_file_ptr, i, vertices[i]);
+    }
+
+    fprintf(msh_file_ptr, "Line\n");
+    for (int i = 0; i < size_lines; i++)
+    {
+        write_line(msh_file_ptr, i, lines[i]);
+    }
+    return 0;
+}
